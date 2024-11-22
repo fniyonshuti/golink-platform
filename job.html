@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search</title>
+    <style>
+        /* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-right: none;
+}
+
+.search-bar select {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.filter-section {
+    width: 30%;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.filter-item {
+    margin-bottom: 20px;
+}
+
+.job-listings {
+    width: 70%;
+    background-color: #0e79ec;
+}
+
+.job-listing {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+}
+
+.job-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.job-details {
+    margin-left: 20px;
+}
+.job-listing {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    display: flex; /* Use flexbox for layout */
+    background-color:gainsboro;
+    margin-top: 5rem;
+    height: 22rem;
+    border-radius: 50px;
+}
+
+.job-logo {
+    width: 60px; /* Adjust the width as needed */
+    background-color: red;
+    margin: 2rem;
+    height: 2px;
+}
+
+.job-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.job-details {
+    margin-left: 20px;
+    flex: 1; /* Make job details take up remaining space */
+    background-color:white;
+    margin: 5px 5px;
+    padding: 2rem;
+    border:0.2em solid gray ;
+    border-radius: 20px;
+}
+
+.job-details h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.job-details p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.job-details p.deadline {
+    color: green; Highlight deadline
+}
+
+.job-actions {
+    text-align: right;
+}
+
+.job-actions button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn{
+    border-radius: 30px;
+    background-color: #007bff;
+    margin-top: 3rem;
+    width: 3rem;
+}
+.head{
+    /* background-image: url('./images/background\ _image.jpg'); */
+    background-color: aquamarine;
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+/* button GO link */
+/* Home Page Button */
+.home-button {
+  text-align:right;
+  margin: 10px ;
+  /* background-color: red; */
+}
+
+.home-button .btn {
+  
+  padding: 10px 20px;
+  background-color: #00509e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  
+}
+
+.home-button .btn:hover {
+  background-color:green;
+  
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <header class="head">
+        <h1>Search for Opportunities</h1>
+        <p>Search your career opportunity</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Job Title or Keyword">
+            <select>
+                <option value="location">Location</option>
+                <option value="location">Gasabo</option>
+                <option value="location">Musanze</option>
+                <option value="location">Huye</option>
+                <option value="location">Kicukiro</option>
+                <option value="location">Nyarugenge</option>
+                </select>
+                
+            <select>
+                <option value="all_categories">All Categories</option>
+                <option value="1">agriculture</option>
+                <option value="2">technology</option>
+                <option value="3">education</option>
+                <!-- <option value="4">All Categories</option>
+                <option value="5">All Categories</option>
+                <option value="6">All Categories</option>
+                <option value="7">All Categories</option>
+                <option value="8">All Categories</option>
+                <option value="9">All Categories</option> -->
+                </select>
+            <button>Find Jobs</button>
+        </div>
+        <div class="home-button">
+            <a href="index.html" class="btn">Return to Home Page</a>
+          </div>
+    </header>
+
+    <main>
+        <section class="filter-section">
+            <h2>Filter Job</h2>
+            <div class="filter-item">
+                <h4>Type of employment</h4>
+                <ul>
+                    <li><input type="checkbox"> Job</li>
+                    <li><input type="checkbox"> Internship</li>
+                    <li><input type="checkbox"> Apprenticeship</li>
+                </ul>
+            </div>
+            <div class="filter-item">
+                <h4>Type of Contract</h4>
+                <ul>
+                    <li><input type="checkbox"> Contractual</li>
+                    <li><input type="checkbox"> Full Time</li>
+                    <li><input type="checkbox"> part time</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="job-listings">
+            <h2 class="title">Available opportunities</h2>
+            <div class="job-listing">
+                <div class="job-logo">
+                    <img src="./images/amazon.png" alt="KORA Jobportal Logo">
+                </div>
+                <div class="job-details">
+                    <h4>Frontend Developer</h4>
+                    <!-- <p>Others</p> -->
+                    <!-- <p>3 days ago by brd</p> -->
+                    <p>Application deadline: Nov 25, 2024</p>
+                    <button class="btn">Apply</button>
+                </div>
+                <div class="job-logo">
+                    <img src="./images/amazon.png" alt="KORA Jobportal Logo">
+                </div>
+                <div class="job-details">
+                    <h4>Social Media Manager</h4>
+                    <!-- <p>Others</p> -->
+                    <!-- <p>3 days ago by brd</p> -->
+                    <p>Application deadline: Dec 05, 2024</p>
+                    <button class="btn">Apply</button>
+                </div>
+                <div class="job-logo">
+                    <img src="./images/amazon.png" alt="KORA Jobportal Logo">
+                </div>
+                <div class="job-details">
+                    <h4>Technical Support Specialist</h4>
+                    <!-- <p>Others</p> -->
+                    <!-- <p>3 days ago by brd</p> -->
+                    <p>Application deadline: Dec 15, 2024</p>
+                    <button class="btn">Apply</button>
+                </div>
+            </div>
+            </section>
+           
+              
+    </main>
+
+    <footer>
+        </footer>
+</body>
+</html>
