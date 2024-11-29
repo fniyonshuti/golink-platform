@@ -1,241 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn2Earn</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn2Earn</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <nav>
-        
-        <a href="#">Learn2Earn</a>
-        <div class="dropdown">
-          <button class="dropdown-button">Job Seekers</button>
-          <div class="dropdown-content">
+      <a href="#">Learn2Earn</a>
+      <div
+        class="user-section"
+        id="user-section"
+        style="display: flex; gap: 10px"
+      >
+        <span id="user-greeting" class="user-greeting"></span>
+        <button id="logout-btn" class="logout-btn" style="display: none">
+          Logout
+        </button>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-button">Job Seekers</button>
+        <div class="dropdown-content">
+          <a href="./index.html">Home</a>
+          <a href="./job.html">Find Jobs</a>
+          <a href="./resume.html">Post Resume</a>
+          <a href="./courses.html">Career resources</a>
+          <a href="./support.html">support</a>
+        </div>
+      </div>
+    </nav>
 
-            <a href="./index.html">Home</a>
-            <a href="./job.html">Find Jobs</a>
-            <a href="./resume.html">Post Resume</a>
-            <a href="./courses.html">Career resources</a>
-            <a href="./support.html">support</a>
+    <!-- Hero Section -->
+    <header
+      class="hero-section text-center text-white d-flex flex-column justify-content-center align-items-center"
+    >
+      <h1 class="display-4 fw-bold">Let’s Find Jobs For You</h1>
+      <p class="fs-4">Any Industry</p>
+    </header>
+
+    <!-- Sign Up Section -->
+    <section class="sign-up-section py-5 bg-primary text-white text-center">
+      <h2>Sign Up To Get Job Alerts</h2>
+      <a href="./sign up.html" target="_blank"
+        ><button class="btn btn-light mt-3">Sign Up</button></a
+      >
+      <div class="mt-5">
+        <img src="./images/job search.jpg" alt="Job Alerts" class="img-fluid" />
+      </div>
+    </section>
+    <!-- appointment GO link  -->
+    <section id="appointment">
+      <div class="appointment-container">
+        <!-- Header -->
+        <h2>Book an Appointment</h2>
+        <p>
+          Schedule a meeting with our mentors to help you achieve your goals.
+        </p>
+
+        <!-- Appointment Form -->
+        <div class="appointment-form">
+          <form action="/appointments/book" method="POST" id="appointmentForm">
+            <!-- Select Mentor/Advisor -->
+            <label for="mentor">Choose a Mentor/Advisor:</label>
+            <select id="mentor" name="mentor" required>
+              <option value="" disabled selected>Select</option>
+              <option value="pacifique">freddy - Career Advisor</option>
+              <option value="leila">
+                davy- building resume and job application advisor
+              </option>
+              <!-- Add more options dynamically -->
+            </select>
+
+            <!-- Select Date -->
+            <label for="date">Choose a Date:</label>
+            <input type="date" id="date" name="date" required />
+
+            <!-- Select Time -->
+            <label for="time">Choose a Time:</label>
+            <input type="time" id="time" name="time" required />
+
+            <!-- Contact Information -->
+            <label for="email">Your Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@example.com"
+              required
+            />
+
+            <!-- Additional Notes -->
+            <label for="notes">Additional Notes (Optional):</label>
+            <textarea
+              id="notes"
+              name="notes"
+              placeholder="Describe your goal or question"
+            ></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Book Appointment</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- mentor ship GO LINK  -->
+    <section id="mentorship">
+      <div class="mentorship-container">
+        <!-- Header Section -->
+        <h2>Find Your Mentor</h2>
+        <p>
+          Get personalized guidance from experienced professionals to achieve
+          your career and learning goals.
+        </p>
+
+        <!-- Features Section -->
+        <div class="mentorship-features">
+          <div class="feature">
+            <h3>One-on-One Mentoring</h3>
+            <p>
+              Schedule individual sessions with mentors in your field of
+              interest.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Career Advice</h3>
+            <p>Receive tips on resumes, interviews, and career growth.</p>
+          </div>
+          <div class="feature">
+            <h3>Skill Development</h3>
+            <p>Get guidance on improving technical and soft skills.</p>
           </div>
         </div>
-    </nav>
-    
 
-  <!-- Hero Section -->
-  <header class="hero-section text-center text-white d-flex flex-column justify-content-center align-items-center">
-    <h1 class="display-4 fw-bold">Let’s Find Jobs For You</h1>
-    <p class="fs-4">Any Industry</p>
-  </header>
+        <!-- Mentors List -->
+        <div class="mentors-list">
+          <h3>Meet Our Mentors</h3>
+          <div class="mentor-card">
+            <img src="./images/freddy.jpg" alt="Mentor Profile Picture" />
+            <h4>freddy</h4>
+            <p>Career Advisor</p>
+            <a href="#" class="btn">View Profile</a>
+          </div>
+          <div class="mentor-card">
+            <img src="./images/davy.jpg" alt="Mentor Profile Picture" />
+            <h4>Davy</h4>
+            <p>building resume and job application advisor</p>
+            <a href="#" class="btn">View Profile</a>
+          </div>
+          <!-- Add more mentor cards as needed -->
+        </div>
 
-  <!-- Sign Up Section -->
-  <section class="sign-up-section py-5 bg-primary text-white text-center">
-    <h2>Sign Up To Get Job Alerts</h2>
-    <a href="./sign up.html" target="_blank"><button class="btn btn-light mt-3">Sign Up</button></a>
-    <div class="mt-5">
-      <img src="./images/job search.jpg" alt="Job Alerts" class="img-fluid">
-    </div>
-  </section>
-  <!-- appointment GO link  -->
-  <section id="appointment">
-    <div class="appointment-container">
-      <!-- Header -->
-      <h2>Book an Appointment</h2>
-      <p>Schedule a meeting with our mentors to help you achieve your goals.</p>
-  
-      <!-- Appointment Form -->
-      <div class="appointment-form">
-        <form action="/appointments/book" method="POST" id="appointmentForm" >
-          <!-- Select Mentor/Advisor -->
-          <label for="mentor">Choose a Mentor/Advisor:</label>
-          <select id="mentor" name="mentor" required>
-            <option value="" disabled selected>Select</option>
-            <option value="pacifique">freddy - Career Advisor</option>
-            <option value="leila">davy- building resume and job application advisor </option>
-            <!-- Add more options dynamically -->
-          </select>
-  
-          <!-- Select Date -->
-          <label for="date">Choose a Date:</label>
-          <input type="date" id="date" name="date" required>
-  
-          <!-- Select Time -->
-          <label for="time">Choose a Time:</label>
-          <input type="time" id="time" name="time" required>
-  
-          <!-- Contact Information -->
-          <label for="email">Your Email:</label>
-          <input type="email" id="email" name="email" placeholder="example@example.com" required>
-  
-          <!-- Additional Notes -->
-          <label for="notes">Additional Notes (Optional):</label>
-          <textarea id="notes" name="notes" placeholder="Describe your goal or question"></textarea>
-  
-          <!-- Submit Button -->
-          <button type="submit" class="btn">Book Appointment</button>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  <!-- mentor ship GO LINK  -->
-  <section id="mentorship">
-    <div class="mentorship-container">
-      <!-- Header Section -->
-      <h2>Find Your Mentor</h2>
-      <p>Get personalized guidance from experienced professionals to achieve your career and learning goals.</p>
-      
-      <!-- Features Section -->
-      <div class="mentorship-features">
-        <div class="feature">
-          <h3>One-on-One Mentoring</h3>
-          <p>Schedule individual sessions with mentors in your field of interest.</p>
-        </div>
-        <div class="feature">
-          <h3>Career Advice</h3>
-          <p>Receive tips on resumes, interviews, and career growth.</p>
-        </div>
-        <div class="feature">
-          <h3>Skill Development</h3>
-          <p>Get guidance on improving technical and soft skills.</p>
+        <!-- Call to Action -->
+        <div class="mentorship-cta">
+          <p>Ready to accelerate your growth? Find the right mentor today!</p>
+          <a href="#" class="btn signup-btn">Join the Mentorship Program</a>
         </div>
       </div>
-  
-      <!-- Mentors List -->
-      <div class="mentors-list">
-        <h3>Meet Our Mentors</h3>
-        <div class="mentor-card">
-          <img src="./images/freddy.jpg" alt="Mentor Profile Picture">
-          <h4>freddy</h4>
-          <p>Career Advisor</p>
-          <a href="#" class="btn">View Profile</a>
-        </div>
-        <div class="mentor-card">
-          <img src="./images/davy.jpg" alt="Mentor Profile Picture">
-          <h4>Davy</h4>
-          <p>building resume and job application advisor</p>
-          <a href="#" class="btn">View Profile</a>
-        </div>
-        <!-- Add more mentor cards as needed -->
-      </div>
-  
-      <!-- Call to Action -->
-      <div class="mentorship-cta">
-        <p>Ready to accelerate your growth? Find the right mentor today!</p>
-        <a href="#" class="btn signup-btn">Join the Mentorship Program</a>
-      </div>
-    </div>
-  </section>
-  <!-- team members GO link -->
-  <section id="team">
-    <div class="team-container">
-      <!-- Header -->
-      <h2>Meet Our Team</h2>
-      <p>Our dedicated team works tirelessly to connect you with the best job opportunities and courses.</p>
-      
-      <!-- Team Member Cards -->
-      <div class="team-members">
-        <!-- Team Member 1 -->
-        <div class="team-card">
-          <img src="./images/freddy.jpg" alt="Team Member Photo">
-          <h3>Fred Niyonshuti</h3>
-          <!-- <p>CEO & Founder</p> -->
-          <p>Led the development of core features, including job-matching and skill building resources.</p>
-          <a href="https://www.linkedin.com/in/fred-niyonshuti-9bab57298/" class="btn">Connect on LinkedIn</a>
-        </div>
-        
-        <!-- Team Member 2 -->
-        <div class="team-card">
-          <img src="./images/davy.jpg" alt="Team Member Photo">
-          <h3>Davy RUHUMULIZA NGAMIJE</h3>
-          <!-- <p>Chief Technology Officer</p> -->
-          <p>Created Project Overview and defined project goals.</p>
-          <a href="http://www.linkedin.com/in/ngamije-davy-60358b254" class="btn">Connect on LinkedIn</a>
-        </div>
-        
-        <!-- Team Member 3 -->
-        <div class="team-card">
-          <img src="./images/leila.jpg" alt="Team Member Photo">
-          <h3>Leila Musoni Teta</h3>
-          <!-- <p>Head of Marketing</p> -->
-          <p>Managed and documented technical and other challenges.</p>
-          <a href="#" class="btn">Connect on LinkedIn</a>
-        </div>
-        <!-- Team Member 4 -->
-        <div class="team-card">
-          <img src="member3.jpg" alt="Team Member Photo">
-          <h3>Queen Wihogora</h3>
-          <!-- <p>Head of Marketing</p> -->
-          <p>Coordinated and integrated client feedback into the platform features.</p>
-          <a href="#" class="btn">Connect on LinkedIn</a>
-        </div>
-        <!-- Team Member 5 -->
-        <div class="team-card">
-          <img src="member3.jpg" alt="Team Member Photo">
-          <h3>UWINEZA Pacifique</h3>
-          <!-- <p>Head of Marketing</p> -->
-          <p>Outlined the next steps, prepared design guidelines, and organized final polish for presentation..</p>
-          <a href="#" class="btn">Connect on LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  
-   
+    </section>
+    <!-- team members GO link -->
+    <section id="team">
+      <div class="team-container">
+        <!-- Header -->
+        <h2>Meet Our Team</h2>
+        <p>
+          Our dedicated team works tirelessly to connect you with the best job
+          opportunities and courses.
+        </p>
 
-  <footer>
-    <div class="footer-top">
+        <!-- Team Member Cards -->
+        <div class="team-members">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <img src="./images/freddy.jpg" alt="Team Member Photo" />
+            <h3>Fred Niyonshuti</h3>
+            <!-- <p>CEO & Founder</p> -->
+            <p>
+              Led the development of core features, including job-matching and
+              skill building resources.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/fred-niyonshuti-9bab57298/"
+              class="btn"
+              >Connect on LinkedIn</a
+            >
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <img src="./images/davy.jpg" alt="Team Member Photo" />
+            <h3>Davy RUHUMULIZA NGAMIJE</h3>
+            <!-- <p>Chief Technology Officer</p> -->
+            <p>Created Project Overview and defined project goals.</p>
+            <a
+              href="http://www.linkedin.com/in/ngamije-davy-60358b254"
+              class="btn"
+              >Connect on LinkedIn</a
+            >
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <img src="./images/leila.jpg" alt="Team Member Photo" />
+            <h3>Leila Musoni Teta</h3>
+            <!-- <p>Head of Marketing</p> -->
+            <p>Managed and documented technical and other challenges.</p>
+            <a href="#" class="btn">Connect on LinkedIn</a>
+          </div>
+          <!-- Team Member 4 -->
+          <div class="team-card">
+            <img src="member3.jpg" alt="Team Member Photo" />
+            <h3>Queen Wihogora</h3>
+            <!-- <p>Head of Marketing</p> -->
+            <p>
+              Coordinated and integrated client feedback into the platform
+              features.
+            </p>
+            <a href="#" class="btn">Connect on LinkedIn</a>
+          </div>
+          <!-- Team Member 5 -->
+          <div class="team-card">
+            <img src="member3.jpg" alt="Team Member Photo" />
+            <h3>UWINEZA Pacifique</h3>
+            <!-- <p>Head of Marketing</p> -->
+            <p>
+              Outlined the next steps, prepared design guidelines, and organized
+              final polish for presentation..
+            </p>
+            <a href="#" class="btn">Connect on LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
         <div class="logo">
-            <img src="./images/logo.png" alt="logo" class="img">
+          <img src="./images/logo.png" alt="logo" class="img" />
         </div>
         <div class="social-media">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </div>
-    <div class="footer-bottom">
+      </div>
+      <div class="footer-bottom">
         <div class="footer-section">
-            <h4>OUR MISSION</h4>
-            <div class="mission"><p>Our mission is to empower individuals of all backgrounds across Africa, with a special focus on young people individuals inclusively , by providing an accessible job-matching platform that creates career opportunities through technology. This platform will connect users with meaningful job opportunities, offering the training and resources needed to build sustainable skills for employment. Through this initiative, we aim to foster an inclusive and thriving workforce across Africa.
-            </p></div>
-            
+          <h4>OUR MISSION</h4>
+          <div class="mission">
+            <p>
+              Our mission is to empower individuals of all backgrounds across
+              Africa, with a special focus on young people individuals
+              inclusively , by providing an accessible job-matching platform
+              that creates career opportunities through technology. This
+              platform will connect users with meaningful job opportunities,
+              offering the training and resources needed to build sustainable
+              skills for employment. Through this initiative, we aim to foster
+              an inclusive and thriving workforce across Africa.
+            </p>
+          </div>
         </div>
         <div class="footer-section">
-            <h4>Quick link</h4>
-            <ul>
-                <li><a href="#mentorship">mentorship</a></li>
-                <li><a href="#appointment">appointment</a></li>
-                <li><a href="./job.html">jobs</a></li>
-                <li><a href="#team">members of team </a></li>
-                
-            </ul>
+          <h4>Quick link</h4>
+          <ul>
+            <li><a href="#mentorship">mentorship</a></li>
+            <li><a href="#appointment">appointment</a></li>
+            <li><a href="./job.html">jobs</a></li>
+            <li><a href="#team">members of team </a></li>
+          </ul>
         </div>
         <div class="footer-section">
-            <h4>Contact</h4>
-            <p><strong>connect with us </strong></p>
-            <p>Email:</p>
-            <p>Phone: </p>
-            <p><strong>location:</strong></p>
-            
+          <h4>Contact</h4>
+          <p><strong>connect with us </strong></p>
+          <p>Email:</p>
+          <p>Phone:</p>
+          <p><strong>location:</strong></p>
         </div>
-    </div>
-    <div class="footer-copyright">
+      </div>
+      <div class="footer-copyright">
         <p>&copy; 2024 GO link. All Rights Reserved.</p>
         <!-- <ul>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Admissions Privacy Policy</a></li>
         </ul> -->
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const userSection = document.getElementById("user-section");
+        const userGreeting = document.getElementById("user-greeting");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        // Check if user is logged in
+        const storedUser = sessionStorage.getItem("user");
+
+        if (storedUser) {
+          // Parse user information
+          const user = JSON.parse(storedUser);
+
+          // Display user's name or email
+          const displayName = user.displayName || user.firstName || user.email;
+          userGreeting.textContent = `Welcome, ${displayName}`;
+
+          // Show logout button
+          logoutBtn.style.display = "block";
+        } else {
+          // Show login/signup links if no user is logged in
+          userSection.innerHTML = `
+            <!-- <a href="login.html" class="login-link">Login</a>
+            <a href="sign up.html" class="signup-link">Sign Up</a> -->
+        `;
+        }
+
+        // Logout functionality
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", () => {
+            // Remove user from session storage
+            sessionStorage.removeItem("user");
+
+            // If using Firebase, sign out
+            if (window.firebase && firebase.auth) {
+              firebase.auth().signOut();
+            }
+
+            // Redirect to login page
+            window.location.href = "login.html";
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
