@@ -164,19 +164,6 @@
 
       // Function to handle successful signup
       function handleSuccessfulSignup(user, firstName, lastName, email, phone) {
-        // Store user info in session storage
-        sessionStorage.setItem(
-          "user",
-          JSON.stringify({
-            uid: user.uid,
-            email: email,
-            displayName: `${firstName} ${lastName}`,
-            firstName: firstName,
-            lastName: lastName,
-            phoneNumber: phone,
-          })
-        );
-
         alert("Account created successfully!");
         // Redirect to login or home page
         window.location.href = "login.html";

@@ -9,6 +9,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
   </head>
   <body>
     <nav>
@@ -63,16 +68,15 @@
         </p>
 
         <!-- Appointment Form -->
+        <!-- Appointment Form -->
         <div class="appointment-form">
           <form action="/appointments/book" method="POST" id="appointmentForm">
             <!-- Select Mentor/Advisor -->
             <label for="mentor">Choose a Mentor/Advisor:</label>
             <select id="mentor" name="mentor" required>
               <option value="" disabled selected>Select</option>
-              <option value="pacifique">freddy - Career Advisor</option>
-              <option value="leila">
-                davy- building resume and job application advisor
-              </option>
+              <option value="freddy">Freddy - Career Advisor</option>
+              <option value="davy">Davy - Resume Advisor</option>
               <!-- Add more options dynamically -->
             </select>
 
@@ -103,7 +107,9 @@
             ></textarea>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn">Book Appointment</button>
+            <button type="button" id="submitAppointment" class="btn">
+              Book Appointment
+            </button>
           </form>
         </div>
       </div>
@@ -337,6 +343,77 @@
             window.location.href = "login.html";
           });
         }
+      });
+
+      // Firebase configuration and initialization
+      // Replace with your Firebase project details
+      const firebaseConfig = {
+        apiKey: "AIzaSyCFuj_SodKTq0rg-ScJ6wfJ5YA2YqpHkHU",
+        authDomain: "test-51318.firebaseapp.com",
+        projectId: "test-51318",
+        storageBucket: "test-51318.firebasestorage.app",
+        messagingSenderId: "945305251836",
+        appId: "1:945305251836:web:4768ad717176e432838c79",
+        measurementId: "G-LYQ094G1WH",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      const db = firebase.firestore();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const submitButton = document.getElementById("submitAppointment");
+        const form = document.getElementById("appointmentForm");
+
+        // Check if user is logged in
+        const storedUser = sessionStorage.getItem("user");
+
+        if (!storedUser) {
+          document.getElementById("submitAppointment").textContent =
+            "Log in to book an appointment";
+        }
+
+        // Handle appointment submission
+        submitButton.addEventListener("click", () => {
+          if (!storedUser) {
+            alert("Please log in to book an appointment.");
+            return;
+          }
+
+          // Get form values
+          const mentor = document.getElementById("mentor").value;
+          const date = document.getElementById("date").value;
+          const time = document.getElementById("time").value;
+          const email = document.getElementById("email").value;
+          const notes = document.getElementById("notes").value;
+
+          if (!mentor || !date || !time || !email) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+
+          // Parse user information
+          const user = JSON.parse(storedUser);
+
+          // Save to Firestore
+          db.collection("appointments")
+            .add({
+              mentor,
+              date,
+              time,
+              email,
+              notes,
+              userId: user.uid, // Assuming user.uid is the unique identifier
+              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+            .then(() => {
+              alert("Appointment booked successfully!");
+              form.reset();
+            })
+            .catch((error) => {
+              console.error("Error booking appointment: ", error);
+              alert("Failed to book appointment. Please try again.");
+            });
+        });
       });
     </script>
   </body>
