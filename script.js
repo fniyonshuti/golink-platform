@@ -1,4 +1,35 @@
-const form = document.querySelector("#appointmentForm");
+
+
+
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginLogoutBtn = document.getElementById('login-logout-btn');
+
+    // Check if there's a token in localStorage
+    const token = localStorage.getItem('login-user');
+
+    // If the token exists, display "Logout"
+    if (token) {
+        loginLogoutBtn.textContent = 'Logout';
+        loginLogoutBtn.onclick = () => {
+            // Remove the token from localStorage to log out the user
+            localStorage.removeItem('login-user');
+            window.location.href = '/'; // Redirect to home page after logging out
+        };
+    } else {
+        // If no token, display "Login" and redirect to login page when clicked
+        loginLogoutBtn.textContent = 'Login';
+        loginLogoutBtn.onclick = () => {
+            window.location.href = '/login.html'; // Replace with your login page URL
+        };
+    }
+
+
+
+    // ===================================
+
+    const form = document.querySelector("#appointmentForm");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -26,3 +57,6 @@ form.addEventListener("submit", async (e) => {
         console.error("Error booking appointment:", error);
     }
 });
+});
+
+// ============================================================

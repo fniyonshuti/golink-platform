@@ -1,17 +1,16 @@
 import express from "express"
+import { loginUser, registerUser } from "../controllers/user.js"
+import { checkSchema } from "express-validator"
+import { createUserValidator, loginUserValidator } from "../middlewares/userValidator.js"
 
 const router = express.Router()
 
 
-router.post("/login", (req, res) => {
-    res.send("LOGGING IN ...")
-})
+router.post("/login", checkSchema(loginUserValidator), loginUser)
 
 
 
-router.post("/register", (req, res) => {
-    res.send("registering a user ...")
-})
+router.post("/register",checkSchema(createUserValidator), registerUser)
 
 
 export default router

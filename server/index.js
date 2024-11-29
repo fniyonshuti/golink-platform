@@ -5,6 +5,8 @@ import bodyParser from "body-parser";
 import connectDB from "./utils/db.js";
 import userRouter from "./routes/user.js"
 import jobRouter from "./routes/job.js"
+import appointmentRouter from './routes/appointment.js'
+import cors from "cors"
 dotenv.config()
 
 
@@ -14,13 +16,14 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(cookieParser())
-
+app.use(cors())
 
 
 // USER ROUTES
 
 app.use("/api/jobs", jobRouter)
 app.use("/api/users", userRouter)
+app.use('/api/appointments', appointmentRouter)
 
 
 // CONNECT TO DB

@@ -1,0 +1,21 @@
+{
+  "jobs": [
+    {
+      "id": 1732869497968,
+      "title": "test",
+      "description": "test",
+      "deadline": "2024-11-30",
+      "requirements": [
+        "test"
+      ]
+    },
+    {
+      "id": 1732870002788,
+      "title": "test2",
+      "description": "test2",
+      "deadline": "2024-11-30",
+      "location": "Not specified",
+      "url": "Not provided"
+    }
+  ]
+}

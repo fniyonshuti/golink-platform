@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Search</title>
     <style>
-        /* style.css */
+        
 
 body {
     font-family: Arial, sans-serif;
@@ -82,7 +82,7 @@ main {
 .job-listing {
     border-bottom: 1px solid #ccc;
     padding: 20px;
-    display: flex; /* Use flexbox for layout */
+    display: flex; 
     background-color:gainsboro;
     margin-top: 5rem;
     height: 22rem;
@@ -90,7 +90,7 @@ main {
 }
 
 .job-logo {
-    width: 60px; /* Adjust the width as needed */
+    width: 60px; 
     background-color: red;
     margin: 2rem;
     height: 2px;
@@ -103,7 +103,7 @@ main {
 
 .job-details {
     margin-left: 20px;
-    flex: 1; /* Make job details take up remaining space */
+    flex: 1; 
     background-color:white;
     margin: 5px 5px;
     padding: 2rem;
@@ -122,7 +122,7 @@ main {
 }
 
 .job-details p.deadline {
-    color: green; Highlight deadline
+    color: green;
 }
 
 .job-actions {
@@ -144,19 +144,15 @@ main {
     width: 3rem;
 }
 .head{
-    /* background-image: url('./images/background\ _image.jpg'); */
     background-color: aquamarine;
 }
 .title{
     display: flex;
     justify-content: center;
 }
-/* button GO link */
-/* Home Page Button */
 .home-button {
   text-align:right;
   margin: 10px ;
-  /* background-color: red; */
 }
 
 .home-button .btn {
@@ -200,17 +196,12 @@ main {
                 <option value="1">agriculture</option>
                 <option value="2">technology</option>
                 <option value="3">education</option>
-                <!-- <option value="4">All Categories</option>
-                <option value="5">All Categories</option>
-                <option value="6">All Categories</option>
-                <option value="7">All Categories</option>
-                <option value="8">All Categories</option>
-                <option value="9">All Categories</option> -->
                 </select>
             <button>Find Jobs</button>
         </div>
         <div class="home-button">
             <a href="index.html" class="btn">Return to Home Page</a>
+            <button><a href="upload-job.html" class="btn">Add New job</a></button>
           </div>
     </header>
 
@@ -243,8 +234,6 @@ main {
                 </div>
                 <div class="job-details">
                     <h4>Frontend Developer</h4>
-                    <!-- <p>Others</p> -->
-                    <!-- <p>3 days ago by brd</p> -->
                     <p>Application deadline: Nov 25, 2024</p>
                     <button class="btn">Apply</button>
                 </div>
@@ -253,8 +242,6 @@ main {
                 </div>
                 <div class="job-details">
                     <h4>Social Media Manager</h4>
-                    <!-- <p>Others</p> -->
-                    <!-- <p>3 days ago by brd</p> -->
                     <p>Application deadline: Dec 05, 2024</p>
                     <button class="btn">Apply</button>
                 </div>
@@ -263,8 +250,6 @@ main {
                 </div>
                 <div class="job-details">
                     <h4>Technical Support Specialist</h4>
-                    <!-- <p>Others</p> -->
-                    <!-- <p>3 days ago by brd</p> -->
                     <p>Application deadline: Dec 15, 2024</p>
                     <button class="btn">Apply</button>
                 </div>
@@ -276,5 +261,319 @@ main {
 
     <footer>
         </footer>
+</body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-bar input[type="text"], 
+        .search-bar select {
+            padding: 10px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .job-listings {
+            width: 100%;
+        }
+
+        .job-listing {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .job-details {
+            margin-left: 20px;
+        }
+
+        .job-actions button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .home-button {
+            text-align: right;
+            margin: 10px;
+        }
+
+        .home-button .btn {
+            padding: 10px 20px;
+            background-color: #00509e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .home-button .btn:hover {
+            background-color: green;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-content input, 
+        .modal-content textarea, 
+        .modal-content button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .close-modal {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            float: right;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="head">
+        <h1>Search for Opportunities</h1>
+        <p>Search your career opportunity</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Job Title or Keyword">
+            <select>
+                <option value="location">Location</option>
+                <option value="Gasabo">Gasabo</option>
+                <option value="Musanze">Musanze</option>
+                <option value="Huye">Huye</option>
+                <option value="Kicukiro">Kicukiro</option>
+                <option value="Nyarugenge">Nyarugenge</option>
+            </select>
+            <button>Find Jobs</button>
+        </div>
+        <div class="home-button">
+            <a href="index.html" class="btn">Return to Home Page</a>
+            <button id="add-job-btn" class="btn">Add New Job</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="job-listings">
+            <h2>Available Opportunities</h2>
+            <div>
+                <!-- <div class="job-details">
+                    <h4>Frontend Developer</h4>
+                    <p>Application deadline: Nov 25, 2024</p>
+                    <button>Apply</button>
+                </div> -->
+            </div>
+        </section>
+    </main>
+    <div id="add-job-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Add New Job</h2>
+            <input id="job-title" type="text" placeholder="Job Title" required>
+            <textarea id="job-description" placeholder="Job Description" rows="4" required></textarea>
+            <input id="job-deadline" type="date" required>
+            <input id="job-location" type="text" placeholder="Location (Optional)">
+            <input id="job-url" type="url" placeholder="Website URL (Optional)">
+            <button id="save-job">Save Job</button>
+        </div>
+    </div>
+
+    <script>
+
+const fetchJobs = async () => {
+    const jobsSection = document.querySelector('.job-listings');
+    jobsSection.innerHTML = '<p>Loading jobs...</p>'; // Show a loading message
+
+    try {
+        const response = await fetch('http://localhost:3001/api/jobs');
+        if (response.status != 200) {
+            throw new Error(`Failed to fetch jobs: ${response.status}`);
+        }
+
+
+        let jobs = await response.json();
+        jobs = jobs.jobs
+
+        if (jobs.length === 0) {
+            jobsSection.innerHTML = '<p>No jobs available at the moment.</p>';
+            return;
+        }
+
+        jobsSection.innerHTML = ''; // Clear loading message
+        jobs.forEach(job => {
+    // Convert the deadline to a human-readable format
+    const deadline = new Date(job.deadline);
+    const formattedDeadline = deadline.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
+    // Generate the job listing HTML
+    const jobElement = `
+        <div class="job-listing">
+            <div class="job-details">
+                <h4>${job.title}</h4>
+                <p>Deadline: ${formattedDeadline}</p>
+                <p>Location: ${job.location || 'Not specified'}</p>
+                <button>Apply</button>
+            </div>
+        </div>`;
+    
+    // Insert the job listing into the DOM
+    jobsSection.insertAdjacentHTML('beforeend', jobElement);
+});
+
+    } catch (error) {
+        console.error('Error:', error);
+        jobsSection.innerHTML = '<p>Error loading jobs. Please try again later.</p>';
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchJobs();
+});
+
+
+        // JavaScript for Modal
+const modal = document.getElementById('add-job-modal');
+const addJobBtn = document.getElementById('add-job-btn');
+const closeModalBtn = document.querySelector('.close-modal');
+const saveJobBtn = document.getElementById('save-job');
+
+// Open Modal
+addJobBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+// Close Modal
+closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Save Job Functionality
+saveJobBtn.addEventListener('click', async () => {
+    const title = document.getElementById('job-title').value;
+    const description = document.getElementById('job-description').value;
+    const deadline = document.getElementById('job-deadline').value;
+    const location = document.getElementById('job-location').value;
+    const url = document.getElementById('job-url').value;
+
+    if (!title || !description || !deadline) {
+        alert('Please fill in all required fields!');
+        return;
+    }
+
+    const jobData = {
+        id: Date.now(), // Generate a unique ID based on the current timestamp
+        title,
+        description,
+        deadline,
+        location: location || "Not specified", // Optional field
+        url: url || "Not provided" // Optional field
+    };
+
+    try {
+    const storedUser = localStorage.getItem('login-user');
+    const parsedUser = storedUser ? JSON.parse(storedUser) : null;
+
+    if (!parsedUser || !parsedUser.token) {
+      return alert("Please log in first!");
+    }
+
+    const token = parsedUser.token;
+
+    const response = await fetch('http://localhost:3001/api/jobs/register', {
+      method: 'POST',
+      body: JSON.stringify(jobData),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`, // Sending the token here
+      },
+    });
+
+    const data = await response.json();
+    window.location.href = './job.html'
+  } catch (error) {
+    console.error('Error creating job:', error);
+    alert('Error creating job');
+  }
+});
+
+// Close Modal on Outside Click
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+    </script>
+
 </body>
 </html>

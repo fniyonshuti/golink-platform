@@ -43,8 +43,11 @@ body {
 
   /* Dropdown styles */
   .dropdown {
+    display: flex;
+    justify-content: center;
     position: relative;
     display: inline-block;
+    background-color: #d71313;
   }
 
   .dropdown-content {
@@ -65,8 +68,10 @@ body {
     display: block;
   }
 
-  .dropdown-content a:hover {
-    background-color: #d71313;
+  .navbar-center a:hover {
+    background-color:rgb(53, 87, 198);
+    padding: 0.5rem;
+    text-decoration: none;
   }
 
   .dropdown:hover .dropdown-content {
@@ -778,4 +783,70 @@ footer {
 }
 .mission{
   width: 30rem;
+}
+/* nav bar GO LINK */
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #020b13; /* Blue background */
+  padding: 30px 30px;
+}
+
+.navbar-left .navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-center a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-center a:hover {
+  text-decoration: underline;
+}
+
+.navbar-right a {
+  margin-left: 10px;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.btn-login {
+  background-color: white;
+  color: black;
+  /* border: 1px solid #fff; */
+  padding: 4rem;
+  border-radius:50%;
+  height: 2rem;
+  font-size: 2rem;
+
+}
+
+.btn-login:hover {
+  cursor: pointer;
+}
+
+.btn-signup {
+  background-color: #28a745;
+  color: #fff;
+  border: 1px solid #28a745;
+}
+
+.btn-signup:hover {
+  background-color: #218838;
 }

@@ -22,12 +22,17 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    userType: {
-        type: String,
-        default: "client",
+    isAdmin: {
+        type: Boolean,
+        default: false,
     },
     createAt: {
         type: Date,
         default: Date.now,
     }
 })
+
+const User = mongoose.model('User', userSchema)
+
+
+export default User

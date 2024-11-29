@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Job</title>
+  <style>
+    /* Your CSS styles remain unchanged */
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Add New Job</h1>
+
+    <form id="add-job-form">
+      <input id="job-title" type="text" placeholder="Job Titles" name="title" required><br>
+      <textarea id="job-description" placeholder="Job Description" name="description" rows="4" required></textarea><br>
+      <input id="job-deadline" type="date" placeholder="Deadline" name="deadline" required><br>
+      <!-- <textarea id="job-requirements" placeholder="Job Requirements (comma-separated)" name="requirements" rows="4" required></textarea><br> -->
+      
+      <button id="add-job-btn" type="submit">Add Job</button>
+    </form>
+  </div>
+
+  <div class="home-button">
+    <button><a href="index.html" class="btn">Return to Home Page</a></button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const addJobForm = document.getElementById('add-job-form');
+
+      addJobForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Collecting data from the form
+        const title = document.getElementById('job-title').value;
+        const description = document.getElementById('job-description').value;
+        const deadline = document.getElementById('job-deadline').value;
+        const requirements = document.getElementById('job-requirements').value;
+
+        // Building the job data object
+        const jobData = {
+          id: Date.now(), // Using a timestamp as a temporary unique ID
+          title,
+          description,
+          deadline, // Ensure the deadline is passed as a string in YYYY-MM-DD format
+        };
+
+        try {
+          // Sending the POST request using Fetch API
+          const response = await fetch('http://localhost:3003/jobs', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jobData)
+          });
+
+
+          console.log(response)
+
+          // Check if the response is successful
+          if (response.status === 200) {
+            const responseData = await response.json();
+            console.log('Response:', responseData);
+            alert('Job successfully added!');
+          } else {
+            console.error('Error response:', response);
+            alert('Failed to add job. Please check your input and try again.');
+          }
+        } catch (error) {
+          // Error handling
+          console.error('Error adding job:', error);
+          alert('An error occurred while adding the job. Please try again.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -8,21 +8,22 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        
-        <a href="#">Learn2Earn</a>
-        <div class="dropdown">
-          <button class="dropdown-button">Job Seekers</button>
-          <div class="dropdown-content">
-
-            <a href="./index.html">Home</a>
-            <a href="./job.html">Find Jobs</a>
-            <a href="./resume.html">Post Resume</a>
-            <a href="./courses.html">Career resources</a>
-            <a href="./support.html">support</a>
-          </div>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="#" class="navbar-brand">Learn2Earn</a>
+    </div>
+    <div class="navbar-center">
+      <a href="./index.html">Home</a>
+      <a href="job.html">Find Jobs</a>
+      <a href="./resume.html">Post Resume</a>
+      <a href="./courses.html">Career Resources</a>
+      <a href="./support.html">Support</a>
+    </div>
+    <div class="navbar-right">
+      <a href="./login.html" class="btn-login" id="login-logout-btn">Login</a>
+      <!-- <a href="#" class="btn-signup">Sign Up</a> -->
+    </div>
+  </nav>
     
 
   <!-- Hero Section -->
@@ -44,38 +45,53 @@
     <div class="appointment-container">
       <!-- Header -->
       <h2>Book an Appointment</h2>
-      <p>Schedule a meeting with our mentors to help you achieve your goals.</p>
-  
+      <p>
+        Schedule a meeting with our mentors to help you achieve your goals.
+      </p>
+
+      <!-- Appointment Form -->
       <!-- Appointment Form -->
       <div class="appointment-form">
-        <form action="/appointments/book" method="POST" id="appointmentForm" >
+        <form action="http:localhost:3001/api/appointments/book" method="POST" id="appointmentForm">
           <!-- Select Mentor/Advisor -->
           <label for="mentor">Choose a Mentor/Advisor:</label>
           <select id="mentor" name="mentor" required>
             <option value="" disabled selected>Select</option>
-            <option value="pacifique">freddy - Career Advisor</option>
-            <option value="leila">davy- building resume and job application advisor </option>
+            <option value="freddy">Freddy - Career Advisor</option>
+            <option value="davy">Davy - Resume Advisor</option>
             <!-- Add more options dynamically -->
           </select>
-  
+
           <!-- Select Date -->
           <label for="date">Choose a Date:</label>
-          <input type="date" id="date" name="date" required>
-  
+          <input type="date" id="date" name="date" required />
+
           <!-- Select Time -->
           <label for="time">Choose a Time:</label>
-          <input type="time" id="time" name="time" required>
-  
+          <input type="time" id="time" name="time" required />
+
           <!-- Contact Information -->
           <label for="email">Your Email:</label>
-          <input type="email" id="email" name="email" placeholder="example@example.com" required>
-  
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@example.com"
+            required
+          />
+
           <!-- Additional Notes -->
           <label for="notes">Additional Notes (Optional):</label>
-          <textarea id="notes" name="notes" placeholder="Describe your goal or question"></textarea>
-  
+          <textarea
+            id="notes"
+            name="notes"
+            placeholder="Describe your goal or question"
+          ></textarea>
+
           <!-- Submit Button -->
-          <button type="submit" class="btn">Book Appointment</button>
+          <button type="button" id="submitAppointment" class="btn">
+            Book Appointment
+          </button>
         </form>
       </div>
     </div>
@@ -192,13 +208,13 @@
         <div class="logo">
             <img src="./images/logo.png" alt="logo" class="img">
         </div>
-        <div class="social-media">
+        <!-- <div class="social-media">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+        </div> -->
     </div>
     <div class="footer-bottom">
         <div class="footer-section">
