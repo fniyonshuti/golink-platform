@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn2Earn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="#" class="navbar-brand">Learn2Earn</a>
+    </div>
+    <div class="navbar-center">
+      <a href="./index.html">Home</a>
+      <a href="job.html">Find Jobs</a>
+      <a href="./resume.html">Post Resume</a>
+      <a href="./courses.html">Career Resources</a>
+      <a href="./support.html">Support</a>
+    </div>
+    <div class="navbar-right">
+      <a href="./login.html" class="btn-login" id="login-logout-btn">Login</a>
+      <!-- <a href="#" class="btn-signup">Sign Up</a> -->
+    </div>
+  </nav>
+    
+
+        <!-- Mentors List -->
+        <div class="mentors-list">
+          <h3>Meet Our Mentors</h3>
+          <div class="mentor-card">
+            <img src="./images/freddy.jpg" alt="Mentor Profile Picture" />
+            <h4>freddy</h4>
+            <p>Career Advisor</p>
+            <a href="#" class="btn">View Profile</a>
+          </div>
+          <div class="mentor-card">
+            <img src="./images/davy.jpg" alt="Mentor Profile Picture" />
+            <h4>Davy</h4>
+            <p>building resume and job application advisor</p>
+            <a href="#" class="btn">View Profile</a>
+          </div>
+          <!-- Add more mentor cards as needed -->
+        </div>
+
+  <!-- Sign Up Section -->
+  <section class="sign-up-section py-5 bg-primary text-white text-center">
+    <h2>Sign Up To Get Job Alerts</h2>
+    <a href="./sign up.html" target="_blank"><button class="btn btn-light mt-3">Sign Up</button></a>
+    <div class="mt-5">
+      <img src="./images/job search.jpg" alt="Job Alerts" class="img-fluid">
+    </div>
+  </section>
+  <!-- appointment GO link  -->
+  <section id="appointment">
+    <div class="appointment-container">
+      <!-- Header -->
+      <h2>Book an Appointment</h2>
+      <p>
+        Schedule a meeting with our mentors to help you achieve your goals.
+      </p>
+
+      <!-- Appointment Form -->
+      <!-- Appointment Form -->
+      <div class="appointment-form">
+        <form action="http:localhost:3001/api/appointments/book" method="POST" id="appointmentForm">
+          <!-- Select Mentor/Advisor -->
+          <label for="mentor">Choose a Mentor/Advisor:</label>
+          <select id="mentor" name="mentor" required>
+            <option value="" disabled selected>Select</option>
+            <option value="freddy">Freddy - Career Advisor</option>
+            <option value="davy">Davy - Resume Advisor</option>
+            <!-- Add more options dynamically -->
+          </select>
+
+          <!-- Select Date -->
+          <label for="date">Choose a Date:</label>
+          <input type="date" id="date" name="date" required />
+
+          <!-- Select Time -->
+          <label for="time">Choose a Time:</label>
+          <input type="time" id="time" name="time" required />
+
+          <!-- Contact Information -->
+          <label for="email">Your Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@example.com"
+            required
+          />
+
+          <!-- Additional Notes -->
+          <label for="notes">Additional Notes (Optional):</label>
+          <textarea
+            id="notes"
+            name="notes"
+            placeholder="Describe your goal or question"
+          ></textarea>
+
+          <!-- Submit Button -->
+          <button type="button" id="submitAppointment" class="btn">
+            Book Appointment
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- mentor ship GO LINK  -->
+  <section id="mentorship">
+    <div class="mentorship-container">
+      <!-- Header Section -->
+      <h2>Find Your Mentor</h2>
+      <p>Get personalized guidance from experienced professionals to achieve your career and learning goals.</p>
+      
+      <!-- Features Section -->
+      <div class="mentorship-features">
+        <div class="feature">
+          <h3>One-on-One Mentoring</h3>
+          <p>Schedule individual sessions with mentors in your field of interest.</p>
+        </div>
+        <div class="feature">
+          <h3>Career Advice</h3>
+          <p>Receive tips on resumes, interviews, and career growth.</p>
+        </div>
+        <div class="feature">
+          <h3>Skill Development</h3>
+          <p>Get guidance on improving technical and soft skills.</p>
+        </div>
+      </div>
+    </section>
+    <!-- team members GO link -->
+    <section id="team">
+      <div class="team-container">
+        <!-- Header -->
+        <h2>Meet Our Team</h2>
+        <p>
+          Our dedicated team works tirelessly to connect you with the best job
+          opportunities and courses.
+        </p>
+
+        <!-- Team Member Cards -->
+        <div class="team-members">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <img src="./images/freddy.jpg" alt="Team Member Photo" />
+            <h3>Fred Niyonshuti</h3>
+            <!-- <p>CEO & Founder</p> -->
+            <p>
+              Led the development of core features, including job-matching and
+              skill building resources.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/fred-niyonshuti-9bab57298/"
+              class="btn"
+              >Connect on LinkedIn</a
+            >
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <img src="./images/davy.jpg" alt="Team Member Photo" />
+            <h3>Davy RUHUMULIZA NGAMIJE</h3>
+            <!-- <p>Chief Technology Officer</p> -->
+            <p>Created Project Overview and defined project goals.</p>
+            <a
+              href="http://www.linkedin.com/in/ngamije-davy-60358b254"
+              class="btn"
+              >Connect on LinkedIn</a
+            >
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <img src="./images/leila.jpg" alt="Team Member Photo" />
+            <h3>Leila Musoni Teta</h3>
+            <!-- <p>Head of Marketing</p> -->
+            <p>Managed and documented technical and other challenges.</p>
+            <a href="#" class="btn">Connect on LinkedIn</a>
+          </div>
+          <!-- Team Member 4 -->
+          <div class="team-card">
+            <img src="member3.jpg" alt="Team Member Photo" />
+            <h3>Queen Wihogora</h3>
+            <!-- <p>Head of Marketing</p> -->
+            <p>
+              Coordinated and integrated client feedback into the platform
+              features.
+            </p>
+            <a href="#" class="btn">Connect on LinkedIn</a>
+          </div>
+          <!-- Team Member 5 -->
+          <div class="team-card">
+            <img src="member3.jpg" alt="Team Member Photo" />
+            <h3>UWINEZA Pacifique</h3>
+            <!-- <p>Head of Marketing</p> -->
+            <p>
+              Outlined the next steps, prepared design guidelines, and organized
+              final polish for presentation..
+            </p>
+            <a href="#" class="btn">Connect on LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="logo">
+          <img src="./images/logo.png" alt="logo" class="img" />
+        </div>
+        <!-- <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div> -->
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-section">
+          <h4>OUR MISSION</h4>
+          <div class="mission">
+            <p>
+              Our mission is to empower individuals of all backgrounds across
+              Africa, with a special focus on young people individuals
+              inclusively , by providing an accessible job-matching platform
+              that creates career opportunities through technology. This
+              platform will connect users with meaningful job opportunities,
+              offering the training and resources needed to build sustainable
+              skills for employment. Through this initiative, we aim to foster
+              an inclusive and thriving workforce across Africa.
+            </p>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick link</h4>
+          <ul>
+            <li><a href="#mentorship">mentorship</a></li>
+            <li><a href="#appointment">appointment</a></li>
+            <li><a href="./job.html">jobs</a></li>
+            <li><a href="#team">members of team </a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><strong>connect with us </strong></p>
+          <p>Email:</p>
+          <p>Phone:</p>
+          <p><strong>location:</strong></p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2024 GO link. All Rights Reserved.</p>
+        <!-- <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Admissions Privacy Policy</a></li>
+        </ul> -->
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const userSection = document.getElementById("user-section");
+        const userGreeting = document.getElementById("user-greeting");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        // Check if user is logged in
+        const storedUser = sessionStorage.getItem("user");
+
+        if (storedUser) {
+          // Parse user information
+          const user = JSON.parse(storedUser);
+
+          // Display user's name or email
+          const displayName = user.displayName || user.firstName || user.email;
+          userGreeting.textContent = `Welcome, ${displayName}`;
+
+          // Show logout button
+          logoutBtn.style.display = "block";
+        } else {
+          // Show login/signup links if no user is logged in
+          userSection.innerHTML = `
+            <!-- <a href="login.html" class="login-link">Login</a>
+            <a href="sign up.html" class="signup-link">Sign Up</a> -->
+        `;
+        }
+
+        // Logout functionality
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", () => {
+            // Remove user from session storage
+            sessionStorage.removeItem("user");
+
+            // If using Firebase, sign out
+            if (window.firebase && firebase.auth) {
+              firebase.auth().signOut();
+            }
+
+            // Redirect to login page
+            window.location.href = "login.html";
+          });
+        }
+      });
+
+      // Firebase configuration and initialization
+      // Replace with your Firebase project details
+      const firebaseConfig = {
+        apiKey: "AIzaSyCFuj_SodKTq0rg-ScJ6wfJ5YA2YqpHkHU",
+        authDomain: "test-51318.firebaseapp.com",
+        projectId: "test-51318",
+        storageBucket: "test-51318.firebasestorage.app",
+        messagingSenderId: "945305251836",
+        appId: "1:945305251836:web:4768ad717176e432838c79",
+        measurementId: "G-LYQ094G1WH",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      const db = firebase.firestore();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const submitButton = document.getElementById("submitAppointment");
+        const form = document.getElementById("appointmentForm");
+
+        // Check if user is logged in
+        const storedUser = sessionStorage.getItem("user");
+
+        if (!storedUser) {
+          document.getElementById("submitAppointment").textContent =
+            "Log in to book an appointment";
+        }
+
+        // Handle appointment submission
+        submitButton.addEventListener("click", () => {
+          if (!storedUser) {
+            alert("Please log in to book an appointment.");
+            return;
+          }
+
+          // Get form values
+          const mentor = document.getElementById("mentor").value;
+          const date = document.getElementById("date").value;
+          const time = document.getElementById("time").value;
+          const email = document.getElementById("email").value;
+          const notes = document.getElementById("notes").value;
+
+          if (!mentor || !date || !time || !email) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+
+          // Parse user information
+          const user = JSON.parse(storedUser);
+
+          // Save to Firestore
+          db.collection("appointments")
+            .add({
+              mentor,
+              date,
+              time,
+              email,
+              notes,
+              userId: user.uid, // Assuming user.uid is the unique identifier
+              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+            .then(() => {
+              alert("Appointment booked successfully!");
+              form.reset();
+            })
+            .catch((error) => {
+              console.error("Error booking appointment: ", error);
+              alert("Failed to book appointment. Please try again.");
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
