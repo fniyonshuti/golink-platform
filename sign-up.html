@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up Form with Firebase</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(7, 54, 38);
+        color: #fff;
+        text-align: center;
+      }
+
+      .container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: transparent;
+        color: #fff;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      .google-btn {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #ccc;
+      }
+
+      .home-button {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .home-button .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #080c0f;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s;
+      }
+
+      .home-button .btn:hover {
+        background-color: #003366;
+        transform: scale(1.05);
+      }
+
+      #error-message {
+        color: red;
+        margin-bottom: 10px;
+      }
+    </style>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sign up</h1>
+
+      <div id="error-message"></div>
+
+      <form id="signup-form">
+        <input
+          type="text"
+          id="first-name"
+          placeholder="First name"
+          required
+        /><br />
+        <input
+          type="text"
+          id="last-name"
+          placeholder="Last name"
+          required
+        /><br />
+        <input type="email" id="email" placeholder="Email" required /><br />
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Phone number"
+          required
+        /><br />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          required
+        /><br />
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Confirm password"
+          required
+        /><br />
+
+        <button type="submit" id="signup">Sign up</button>
+
+        <p>Already have an account? <a href="login.html">Log in</a></p>
+        <p>or</p>
+        <button type="button" id="google-signup" class="google-btn">
+          Sign up with Google
+        </button>
+      </form>
+    </div>
+
+    <div class="home-button">
+      <a href="index.html" class="btn">Return to Home Page</a>
+    </div>
+
+    <script>
+      // Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCFuj_SodKTq0rg-ScJ6wfJ5YA2YqpHkHU",
+        authDomain: "test-51318.firebaseapp.com",
+        projectId: "test-51318",
+        storageBucket: "test-51318.firebasestorage.app",
+        messagingSenderId: "945305251836",
+        appId: "1:945305251836:web:4768ad717176e432838c79",
+        measurementId: "G-LYQ094G1WH",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Check if user is already logged in
+      document.addEventListener("DOMContentLoaded", () => {
+        const storedUser = sessionStorage.getItem("user");
+        if (storedUser) {
+          // Redirect to index page if user is logged in
+          window.location.href = "index.html";
+        }
+      });
+
+      // Get form and input elements
+      const signupForm = document.getElementById("signup-form");
+      const googleSignupBtn = document.getElementById("google-signup");
+      const errorMessage = document.getElementById("error-message");
+      const signUpButton = document.getElementById("signup");
+
+      // Function to handle successful signup
+      function handleSuccessfulSignup(user, firstName, lastName, email, phone) {
+        alert("Account created successfully!");
+        // Redirect to login or home page
+        window.location.href = "login.html";
+      }
+
+      // Email/Password Signup
+      signupForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const firstName = document.getElementById("first-name").value;
+        const lastName = document.getElementById("last-name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+
+        // Basic validation
+        if (password !== confirmPassword) {
+          errorMessage.textContent = "Passwords do not match";
+          return;
+        }
+
+        try {
+          // Set loading state
+          signUpButton.textContent = "Loading...";
+          signUpButton.disabled = true;
+
+          // Clear previous error message
+          errorMessage.textContent = "";
+
+          // Create user with email and password
+          const userCredential = await firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password);
+          const user = userCredential.user;
+
+          // Optional: Store additional user info in Firebase Firestore
+          await firebase.firestore().collection("users").doc(user.uid).set({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phoneNumber: phone,
+          });
+
+          // Handle successful signup
+          handleSuccessfulSignup(user, firstName, lastName, email, phone);
+        } catch (error) {
+          errorMessage.textContent = error.message;
+        } finally {
+          // Reset loading state
+          signUpButton.textContent = "Sign up";
+          signUpButton.disabled = false;
+        }
+      });
+
+      // Google Signup
+      googleSignupBtn.addEventListener("click", async () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        try {
+          const result = await firebase.auth().signInWithPopup(provider);
+          const user = result.user;
+
+          // Extract first and last name from display name or use email
+          const nameParts = (user.displayName || user.email).split(" ");
+          const firstName = nameParts[0];
+          const lastName = nameParts.slice(1).join(" ") || "";
+
+          // Handle successful Google signup
+          handleSuccessfulSignup(
+            user,
+            firstName,
+            lastName,
+            user.email,
+            user.phoneNumber
+          );
+        } catch (error) {
+          errorMessage.textContent = error.message;
+        }
+      });
+    </script>
+  </body>
+</html>
