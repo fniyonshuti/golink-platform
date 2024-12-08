@@ -43,7 +43,7 @@ form.addEventListener("submit", async (e) => {
     };
 
     try {
-        const response = await fetch("http://localhost:5000/api/appointments/book", {
+        const response = await fetch("https://golink-platform.onrender.com/api/appointments/book", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

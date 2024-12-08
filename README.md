@@ -106,7 +106,7 @@ Run the backend:
 
 Access the Application:
 The application should now be running locally. Access it in your browser at
-http://localhost:3001.
+https://67558db998d1f070a7332602--lucky-gecko-7522fa.netlify.app/
 
 Code Quality and GitHub Repository Management
         https://github.com/fniyonshuti/golink-platform.git
